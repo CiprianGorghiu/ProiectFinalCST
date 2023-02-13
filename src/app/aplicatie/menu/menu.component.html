@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Adauga calatorie</h1>
+  <form #form="ngForm">
+    <input nz-input placeholder="Titlul" nzSize="small" name="titlu" [(ngModel)]="titlu" required /><br>
+    <input nz-input placeholder="Descrierea" nzSize="small" name="descriere" [(ngModel)]="descriere" required /><br>
+    <input nz-input placeholder="URL imagine" nzSize="small" name="imagine" [(ngModel)]="imagine" required /><br>
+    <br>
+    <button nz-button nzType="primary" (click)="adaugaCard()" [disabled]="!form.valid"><span nz-icon nzType="plus" nzTheme="outline"></span>Adauga card</button>
+  </form>
+</div>
+
+
+
+
+<div class="cards">
+  <div class="card" *ngFor="let card of carduri">
+    <img [src]="card.imagine" alt="{{card.titlu}}">
+    <h3>{{card.titlu}}</h3>
+    <p>{{card.descriere}}</p>
+  </div>
+</div>
